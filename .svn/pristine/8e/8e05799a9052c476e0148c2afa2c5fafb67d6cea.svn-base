@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>海航军事训练管理系统</title>
+		<link rel="icon" href="img/icon.png" />
+		<link rel="stylesheet" href="css/default/easyui.css" />
+		<link rel="stylesheet" href="css/icon.css" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.easyui.min.js"></script>
+		<script src="js/easyui-lang-zh_CN.js"></script>
+		<link rel="stylesheet" href="css/index.css" />
+		
+	<script>
+	$(function(){
+		
+		$(".list1>a>li").click(function(){
+			$(".list1>a>li").removeClass("lihover");
+			$(this).addClass("lihover");
+		});
+		
+		var count = 0;
+		$("#last").click(function(){
+			if(count == 0){
+				$("#west .list1 .list2").css("height","105px");
+				$("#last i").css("background-image","url(img/kai.png)");
+				count ++;
+			}else{
+				$("#west .list1 .list2").css("height","0px");
+				$("#last i").css("background-image","url(img/guan.png)");
+				count = 0;
+			}
+
+		});
+		
+		$("#main").tabs({
+			fit:true,
+			tabHeight:30,
+		});
+		
+	});
+	
+	function addTab(title,url){
+		var tab = $("#main").tabs("getTab", title);
+		if(tab) {
+			$("#main").tabs("select", title);
+			return;
+		}
+		$("#main").tabs("add", {
+			title: title,
+			selected: true,
+			closable: true,
+			href: url,
+			method: "post"
+		});
+	}
+	
+	</script>
+		
+	</head>
+	
+	<body class="easyui-layout" style="min-width: 1200px;"> 
+		  
+    <div data-options="region:'north',border:false" id="north">
+    	<img src="img/header.png" />
+    	
+    	<div class="right">
+    		<span>欢迎您，捷瑞数字</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    		<a href="#">修改密码</a>
+    		&nbsp;|&nbsp;
+    		<a href="#">退出登录</a>
+    	</div>
+    </div> 
+    
+    <div data-options="region:'west',border:false" id="west">
+    	<ul class="list1">
+    		<a><li><span></span>个人信息</li></a>
+    		<a><li><span></span>文档管理</li></a>
+    		<a onclick="addTab('资料管理','data/dataList.php')"><li><span></span>资料管理</li></a>
+    		<a onclick="addTab('计划管理','planning/planningList.php')"><li><span></span>计划管理</li></a>
+    		<a onclick="addTab('训练管理','trainManage/trainManage.php')"><li><span></span>训练管理</li></a>
+    		
+    		<a><li id="last"><span></span>系统管理<i></i></li></a>
+    		<ul class="list2">
+    			<a onclick="addTab('用户管理','user/userList.php')"><li>用户管理</li></a>
+    			<a><li>专业管理</li></a>
+    			<a><li>班级管理</li></a>
+    		</ul>
+    	</ul>
+    </div>   
+    
+    <div data-options="region:'center',border:false" id="center">
+    	<div id="main">   
+		    <div title="♛  首页">   
+		        <div class="img">
+		        	<img src="img/ind_user_href.png" />
+		        	<img src="img/ind_man_comm_href.png" />
+		        </div>  
+		    </div>   
+		</div>  	
+    </div>  
+    
+    <div data-options="region:'south',border:false" id="south">
+    	Copyright©海军航空工程学院
+    </div>
+     
+	</body> 
+</html>

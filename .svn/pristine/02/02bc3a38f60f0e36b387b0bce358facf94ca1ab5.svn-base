@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>军人体能标准</title>
+		<style type="text/css">
+			
+			.layout-panel-south {
+			    height: 30px;
+			    font-size: 12px;
+			    text-align: center;
+			    line-height: 30px;
+			    background-color: #858585;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<h1 style="text-align: center;">军人体能标准</h1>
+		<div class="easyui-layout layout" style="width: 950px; height:1247px; margin: 0 auto;">
+
+			<div class="panel layout-panel layout-panel-center" style="width: 950px; left: 0px; top: 0px;border: 1px solid #CBCCCE;">
+				<div data-options="region:'center',border:false,border:true" style="padding: 15px; font-size: 13px; width: 918px; height: 1186px;" title="" class="panel-body panel-body-noheader layout-body">
+					<p>《军人体能标准》是在1994年总参谋部、总政治部联合颁发的《军人体育锻炼标准》的基础上，适应军事训练改革发展需要， 适应军事斗争准备和未来作战对军人体能要求，以增强官兵体质、打牢战斗力基础为根本目标，自2002年起，历时近5年时间修编而成。 期间，总参谋部先后组织6所院校开展了15项专题研究，完成了体系结构的总体设计，组织了“渡海抗眩晕预适应训练试验”“高原训练生理负 荷强度试验”等23项科研试验，采集了500余万组数据，于2004年初颁发《军人体能标准》（试行本），指导部队普遍试训，并在3次组织 专家集中汇审修改，征求各军区、军兵种、总部机关和有关院校意见基础上，形成了结构合理、内容科学、标准适度、保障简便的《军人体能标准》。 《军人体能标准》由总则、通用体能标准、入伍训练体能标准、飞行人员体能标准和附录5个部分构成。 新颁布的《军人体能标准》拓展了适用范围， 首次实现了对全军所有现役人员体能训练的系统规范；优化了结构体系，突破专业局限，将各军兵种现行训练大纲的36个标准合并为通用、入伍训练、 飞行人员三个标准，将体能项目整合为基础性、专业性和辅助性三类；创新了训练内容，把年龄、性别、海拔作为调节训练难度强度的主要参数， 把体型标准作为军人必须达标的内容；着眼实战需要，删除技巧性、观赏性的体能项目，增加紧贴任务、符合实战的训练内容。这些新变化， 有利于全体官兵开展体能训练、提高体能素质，便于各级根据岗位性质和专业特点有针对性地安排训练，对直接服务作战、 提高训练效益将起到积极的促进和推动作用。
+					</p>
+		
+					<h2>标准内容</h2>
+					<h4>常规</h4>
+					<p>徒手五公里:23分钟及格.21分钟优秀, 海军陆战队20分</p>
+					<p>战术(10米低姿匍匐前进.10米侧姿匍匐前进.10米跃进卧倒):30秒及格.20秒优秀</p>
+					<p>单腿深蹲:6个及格.12个优秀</p>
+					<p>100米:14.9秒及格.13.5秒优秀</p>
+					<p>单杠引体向上:12个及格.16个优秀</p>
+					<p> 双杠屈臂撑:12个及格.16个优秀</p>
+					<p>俯卧撑：2分钟40个及格.60个优秀 </p>
+					<p>仰卧起坐:3分钟50个及格.80个优秀</p>
+					<h4>雪豹标准</h4>
+					<p>90分钟内200俯卧撑+200仰卧起坐+100蛙跳+200次杠铃+35公斤十公里</p>
+					<h4>特种部队日常训练项目</h4>
+					<p>举200次15KG的哑铃，拉100次4簧的拉力器，臂力棒100下。</p>
+					<p>30米长的铁丝网往返匍匐50次。</p>
+					<p>前倒后到各50次</p>
+					<p>引体向上、双杠臂屈伸各100次</p>
+					<p>瞄靶一个半小时，立姿、跪姿、卧姿个半小时，立姿和跪姿要枪口挂砖。</p>
+					<p>每周三次游泳训练，穿军装一口气3000M</p>
+					<p>每五天军队铁人三项：负重40kg跑2000，负重20kg游2000，负重20kg骑车5000.</p>
+					<p>每月三次负重20KG跑15K</p>
+				</div>
+			</div>
+		
+			<div class="panel layout-panel layout-panel-south" style="width: 950px; left: 0px; top: 1217px;border: 1px solid #CBCCCE;">
+				<div data-options="region:'south',border:true" style="overflow: hidden; width: 948px; height: 28px;" title="" class="panel-body panel-body-noheader layout-body">
+					<div style="height: 30px;background-image:url(../resources/imgs/bg-1.jpg);background-size:cover;font-size:12px; text-align: center; line-height: 30px;">
+						Copyright©海军航空工程学院
+					</div>
+				</div>
+			</div>
+			<div class="layout-split-proxy-h"></div>
+			<div class="layout-split-proxy-v"></div>
+		</div>
+		
+	</body>
+</html>

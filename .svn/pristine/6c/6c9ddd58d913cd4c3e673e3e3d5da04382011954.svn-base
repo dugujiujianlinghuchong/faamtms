@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>年度考核标准</title>
+		<style type="text/css">
+			
+			.layout-panel-south {
+			    height: 30px;
+			    font-size: 12px;
+			    text-align: center;
+			    line-height: 30px;
+			    background-color: #858585;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<h1 style="text-align: center;">年度考核标准</h1>
+
+		<div class="easyui-layout layout" style="width: 950px; height:1247px; margin: 0 auto;">
+	
+			<div class="panel layout-panel layout-panel-center" style="width: 950px; left: 0px; top: 0px;border: 1px solid #CBCCCE;">
+				<div data-options="region:'center',border:false,border:true" style="padding: 15px; font-size: 13px; width: 918px; height: 1186px;" title="" class="panel-body panel-body-noheader layout-body">
+					新一界飞行学员：<br> &nbsp;&nbsp;&nbsp;&nbsp;大家好！为全面详细了解飞行学员的体能训练基础，特发放此调查表。希望您能认真、如实填写，谢谢您的真诚合作！
+					<h3>填写说明：</h3> （1）凡遇到需要选择题目，请您根据自己的认识在相应选项中打“√”；
+					<br> （2）凡遇到_____线处，除根据题目的中未列项目外，根据要求填写内容；
+					<br> （3）您能认为有些项目、内容与问题，本问卷未包括，您可增补。
+					<br>
+				</div>
+			</div>
+		
+			<div class="panel layout-panel layout-panel-south" style="width: 950px; left: 0px; top: 1217px;border: 1px solid #CBCCCE;">
+				<div data-options="region:'south',border:true" style="overflow: hidden; width: 948px; height: 28px;" title="" class="panel-body panel-body-noheader layout-body">
+					<div >
+						Copyright©海军航空工程学院
+					</div>
+				</div>
+			</div>
+			<div class="layout-split-proxy-h"></div>
+			<div class="layout-split-proxy-v"></div>
+		</div>
+				
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<?php
+	header("Content-Type:text/html;charset=utf-8");
+	include_once("../common/mysql.php");
+//	$_GET["userID"];
+//	file_put_contents("fileTest1.txt", $_GET["userID"]);
+	
+	$fileName=$_FILES["fileInput"]["name"];//文件名
+	$fileType=explode(".", $fileName)[1];//后缀名
+	$fileSize=$_FILES['fileInput']['size'];//文件大小
+	$uploadTime=date("Y-m-d");//上传时间
+	$filePath="../upload/". $fileName;
+	$tmp_name=$_FILES['fileInput']['tmp_name'];//临时文件名
+	
+	
+//	file_put_contents("fileTest1.txt", $fileName);
+//	file_put_contents("fileTest2.txt", $fileType);
+//	file_put_contents("fileTest3.txt", $upLoadTime);
+//	file_put_contents("fileTest4.txt", $filePath);
+	$fileName=iconv("gbk","UTF-8",$fileName);
+	$isOk = move_uploaded_file($tmp_name,"upload/". $fileName);
+	if($isOk){
+		echo "true";
+		$insertFileInfo=<<<insertFileInfo
+	insert into data_details (file_name,file_type,file_size,uploadTime) values ('{$fileName}','{$fileType}','{$fileSize}','{$uploadTime}')
+insertFileInfo;
+		mysqli_query($link, $insertFileInfo);
+		mysqli_close($link);
+	}else{
+		echo "false";
+	}
+	
+	
+	

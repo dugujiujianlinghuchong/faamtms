@@ -1,0 +1,13 @@
+封装
+单例
+串行化
+自动加载
+回调函数
+label
+mui.init();
+fullpage
+视觉差
+JQUary
+fullpage
+闭包
+gulp

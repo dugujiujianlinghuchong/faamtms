@@ -1,0 +1,115 @@
+
+<div id="tbBar" style="padding: 2px 10px;">
+	<a class="easyui-linkbutton" plain="true" iconCls="icon-add" id="addTrain">添加</a>
+	<a class="easyui-linkbutton" plain="true" iconCls="icon-edit" id="change">编辑</a>
+	<a class="easyui-linkbutton" plain="true" iconCls="icon-remove" id="del">删除</a>
+	<a class="easyui-linkbutton" plain="true" iconCls="icon-reload" id="reload">刷新</a>
+	<a class="easyui-linkbutton" plain="true" iconCls="icon-search" id="search">筛选</a>
+	
+	<div class="userSearch">
+		<form action="" method="post">
+			专业：<input id="majorSel" name="majorSel" value="">
+			班次：<input id="classSel" name="classSel" value="">
+						  
+					
+			<a class="easyui-linkbutton" plain="true" iconCls="icon-search" id="searchUser">筛选</a>
+		</form>
+	</div>
+</div>
+
+<table id="userTable">   
+    <thead>   
+        <tr>   
+            <th data-options="field:'stucode',width:100">学员编号</th>   
+            <th data-options="field:'stuname',width:100">学员姓名</th>   
+            <th data-options="field:'sex_show',width:100">性别</th>   
+            <th data-options="field:'major',width:100">专业</th>   
+            <th data-options="field:'class',width:100">班次</th>   
+            <th data-options="field:'state_show',width:100">状态</th>   
+        </tr>   
+    </thead>  
+</table>
+
+
+
+
+<script type="text/javascript">
+	$(function(){
+		//有依赖关系的下拉框
+		$('#majorSel').combobox({    
+		    url:'trainManage/doSelect.php',    
+		    valueField:'id',    
+		    textField:'text',
+		    panelHeight:'auto',
+		    editable:false,
+		    onSelect:function(obj){
+//			    	console.log(obj.id); 
+		    	$('#classSel').combobox({
+				    url:'trainManage/doSelect.php?id='+obj.id,    
+				    valueField:'id',    
+				    textField:'text',
+				    panelHeight:'auto',
+				    editable:false,
+				});
+		    },
+		});
+		
+		//数据显示
+		$("#userTable").datagrid({
+			title:"用户管理",
+			url:"trainManage/doShowStuList.php",
+			border:false,
+			fit:true,
+			fitColumns:true,
+			pagination:true,
+			rownumbers:true,
+			toolbar:"#tbBar",
+			singleSelect:true,
+			onDblClickRow:function(index,row){
+				window.open("user/userDetail.php?id="+row.id,"userDetail","height=600, width=1000,top=50,left=150");
+			}
+		});
+		
+		// 点击筛选，显示筛选条
+		$("#search").click(function(){
+			if($(".userSearch").css("height")=="0px"){
+				$(".userSearch").css("height","30px");
+				setTimeout(function(){
+					$("#userTable").datagrid("resize");
+				},500);
+			}else{
+				$(".userSearch").css("height","0px");
+				setTimeout(function(){
+					$("#userTable").datagrid("resize");
+				},500);
+			}
+		});
+		// 筛选操作
+		$("#searchUser").click(function(){
+			
+			
+			
+			var usernum   = $("#usernum").val();
+			var username  = $("#username").val();
+			var positions = $("#position").combobox("getValue");
+			var isshow    = $("#isshow").combobox("getValue");
+			
+			$("#userTable").datagrid({
+				url:"user/doShowUserList.php",
+				queryParams:{
+					"usernum":usernum,
+					"username":username,
+					"positions":positions,
+					"isshow":isshow
+				},
+				onLoadSuccess:function(data){
+					$.messager.alert("筛选提示","筛选成功！共筛选出"+data.total+"条数据");
+				}
+			});	
+		});
+		
+		
+		
+		
+	})
+</script>

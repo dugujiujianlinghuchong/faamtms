@@ -1,0 +1,45 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : MYSQL
+Source Server Version : 50714
+Source Host           : localhost:3306
+Source Database       : faamtms
+
+Target Server Type    : MYSQL
+Target Server Version : 50714
+File Encoding         : 65001
+
+Date: 2017-06-30 15:12:48
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for data
+-- ----------------------------
+DROP TABLE IF EXISTS `data`;
+CREATE TABLE `data` (
+  `id` int(255) unsigned NOT NULL AUTO_INCREMENT,
+  `data_name` varchar(255) NOT NULL,
+  `data_type` tinyint(6) NOT NULL,
+  `data_description` varchar(255) NOT NULL,
+  `data_updator` varchar(255) NOT NULL,
+  `updata_time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of data
+-- ----------------------------
+INSERT INTO `data` VALUES ('1', '高等数学', '0', 'PPT', '虞涛', '2017-06-30 13:51:00');
+INSERT INTO `data` VALUES ('2', '大学物理', '1', 'PPT', '虞涛', '2017-06-30 13:51:05');
+INSERT INTO `data` VALUES ('3', '机械制图', '2', 'PPT', '虞涛', '2017-06-30 13:51:11');
+INSERT INTO `data` VALUES ('4', '黑客帝国', '3', '视频', '虞涛', '2017-06-08 13:50:51');
+INSERT INTO `data` VALUES ('6', '沧海一声笑', '4', '音频', '虞涛', '2017-06-13 13:55:54');
+INSERT INTO `data` VALUES ('7', 'PHP从入门到放弃', '4', 'PDF', '虞涛', '2017-06-30 13:58:14');
+INSERT INTO `data` VALUES ('8', 'PHP从入门到放弃', '4', 'PDF', '虞涛', '2017-06-30 13:58:17');
+INSERT INTO `data` VALUES ('9', 'PHP从入门到放弃', '4', 'PDF', '虞涛', '2017-06-30 13:58:19');
+INSERT INTO `data` VALUES ('10', 'PHP从入门到放弃', '4', 'PDF', '虞涛', '2017-06-30 13:58:21');
+INSERT INTO `data` VALUES ('11', 'PHP从入门到放弃', '4', 'PDF', '虞涛', '2017-06-30 13:58:23');
+INSERT INTO `data` VALUES ('12', 'PHP从入门到放弃', '4', 'PDF', '虞涛', '2017-06-13 13:56:51');

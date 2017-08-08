@@ -1,0 +1,34 @@
+<?php
+	header("content-type:text/html;charset=utf-8");
+
+	if(isset($_GET["id"])){
+		$json = <<<json
+		[{    
+		    "id":1,    
+		    "text":"通信一班"   
+		},{    
+		    "id":2,    
+		    "text":"通信二班"   
+		}]
+json;
+		die($json);
+	}
+	
+	$json = <<<json
+	[{    
+	    "id":1,    
+	    "text":"通信工程"   
+	},{    
+	    "id":2,    
+	    "text":"计算机科学与技术"   
+	},{    
+	    "id":3,    
+	    "text":"数学学院"  
+	},{    
+	    "id":4,    
+	    "text":"会计学院"   
+	}]
+json;
+	echo $json;
+	
+	

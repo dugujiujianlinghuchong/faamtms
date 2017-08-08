@@ -1,0 +1,30 @@
+<table id="userTable">   
+    <thead>   
+        <tr>   
+            <th data-options="field:'code',width:100">编码</th>   
+            <th data-options="field:'name',width:100">名称</th>   
+            <th data-options="field:'price',width:100">价格</th>   
+        </tr>   
+    </thead>  
+     <tbody>   
+        <tr>   
+            <td>001</td><td>名称1</td><td>2323</td>   
+        </tr>   
+        <tr>   
+            <td>002</td><td>名称2</td><td>4612</td>   
+        </tr>   
+    </tbody>    
+</table>  
+	
+<script>
+	$(function(){
+		$("#userTable").datagrid({
+				title:"用户管理",
+				border:false,
+				fit:true,
+				fitColumns:true,
+				pagination:true,
+				rownumbers:true,
+		});
+	});
+</script>

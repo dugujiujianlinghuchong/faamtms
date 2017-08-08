@@ -1,0 +1,19 @@
+<?php
+
+	header("Content-Type:text/html;charset=utf-8");
+	
+	//error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
+	
+	define("HOST", "127.0.0.1");// 192.168.0.143
+	define("USERNAME", "root"); // group1~4
+	define("PASSWORD", "");
+	define("DBNAME", "faamtms"); // faamtms1~4
+	define("CHARSET", "utf8");
+	
+	$link = @mysqli_connect(HOST, USERNAME, PASSWORD, DBNAME) or die("数据链接失败！<span style='color:red;'>".mysqli_connect_error()."</span>");
+	
+	
+	@mysqli_set_charset($link, CHARSET) or die("字符集编码设置无效！");
+	
+	
+	

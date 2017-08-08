@@ -1,0 +1,154 @@
+
+	<div id="tbBar4" style="padding: 3px 10px;">
+
+		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" id="new4">
+			新建</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" id="update4">
+			修改</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" id="del4">
+			删除</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true" id="reload4">
+			刷新</a>
+		<a href="#" class="easyui-linkbutton " iconCls="icon-search" plain="true" id="search4" >
+			筛选</a>
+		<div class="planSearch">
+			<form action="" method="post">
+				计划名称：<input type="text" name="plan_name" style="width: 80px;height: 17px;" id="plan_name"/>
+				训练阶段：<select class="easyui-combobox" name="plan_stage" panelHeight="auto" editable="false" id="plan_stage">  
+						    <option value=""> </option> 
+						    <option value="1">第一阶段</option>   
+						    <option value="2">第二阶段</option>   
+						    <option value="3">第三阶段</option>   
+						    <option value="4">第四阶段</option>   
+						    <option value="5">第五阶段</option> 
+						</select>  
+				<a href="#" class="easyui-linkbutton" iconCls="icon-search" plain="true" id="searchPlan4">
+					筛选
+				</a>
+			</form>
+		</div>
+	</div>
+	
+   <table id="planTable4" class="easyui-datagrid">   
+	    <thead>   
+	        <tr>   
+	            <th data-options="field:'plan_name',width:100">计划名称</th>   
+	            <th data-options="field:'plan_stage',width:100">训练阶段</th>   
+	            <th data-options="field:'plan_remark',width:100">备注</th>  
+	        </tr>   
+	    </thead>   
+	    
+	</table>  
+		
+		
+	<script type="application/javascript">
+		
+		$(function(){
+						
+			$("#planTable4").datagrid({
+				title:"计划管理",
+				border:false,
+				pagination:true,
+				fit:true,
+				fitColumns:true,
+				toolbar:"#tbBar4",
+				singleSelect:true,
+				url:"planning/doShowPlanList.php",
+				onDbClickRow:function(index,row){
+					window.open("planning/planningDetail.php","planDetail","height=600,width=1000,top=30,left=150");
+				}
+			});
+			
+			//点击展示筛选条件
+			$("#search4").click(function(){
+				if($(".planSearch").css("height")=="0px"){
+					$(".planSearch").css("height","30px");
+//					$(".userSearch").css("transition","all .5s ease");
+					$("#planTable4").datagrid("resize");
+				}else{
+					$(".planSearch").css("height","0px");
+//					$(".userSearch").css("transition","all .5s ease");
+					$("#planTable4").datagrid("resize");
+				}
+			});
+			
+			//刷新表格
+			$("#reload4").click(function(){
+				$("#planTable4").datagrid({
+					url:"planning/doShowPlanList.php",
+					queryParams:{
+						"plan_name":"",
+						"plan_stage":"",
+						"plan_remark":"",
+					},
+					
+				});
+			});
+			
+			
+			//筛选操作
+			$("#searchPlan4").click(function(){
+				var usernum= $("#plan_name").val();
+				var username= $("#username4").val();
+				var positions= $("#position4").combobox("getValue");
+				var isshow= $("#isshow4").combobox("getValue");
+				
+//				alert(usernum+username+positions+isshow);
+				$("#planTable4").datagrid({
+					url:"planning/doShowPlanList.php",
+					queryParams:{
+						"plan_name":plan_name,
+						"plan_stage":plan_stage,
+						"plan_remark":plan_remark,
+					},
+					onLoadSuccess:function(data){
+						$.massager.alert("筛选提示","筛选成功，共筛选出"+data.total+"条数据")
+					},
+				});
+				
+			});
+			//新增按钮
+			$("#new4").click(function(){
+				window.open("planning/planningDetail.php","planDetail","height=600,width=1000,top=30,left=150");
+			});
+			//修改
+			$("#update4").click(function(){
+				var arr=$("#planTable4").datagrid("getSelections");
+				if (arr.length==0) {
+					$.messager.alert("提示","至少选择一行");
+				}else{
+					window.open("planning/planningDetail.php?id="+arr[0].id,"planDetail","height=600,width=1000,top=30,left=150");
+					
+				}
+
+			});
+			//删除
+			$("#del4").click(function(){
+				var arr= $("#planTable4").datagrid("getSelections");
+				if (arr.length==0) {
+					$.messager.alert("提示","请至少选择一行");
+				}else{
+					$.messager.confirm("提示","确认删除一条记录？",function(is){
+						if(!is){
+							$.messager.alert("提示","取消删除");
+							return;
+						}
+						
+						$.post("planning/doDelPlan.php",{"id":arr[0].id},function(data){
+							$.messager.alert("删除提示",data,"info",function(){
+								if (data=="删除成功") {
+									reloadDg();
+								}
+							});
+						});
+					});
+				}
+			});
+			
+		});
+		
+		function reloadDg() { 
+			$("#planTable4").datagrid("reload");
+		} 
+		
+	</script>

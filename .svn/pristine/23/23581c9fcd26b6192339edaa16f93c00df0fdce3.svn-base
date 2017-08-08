@@ -1,0 +1,17 @@
+<?php
+	header("Content-Type:text/html;charset=utf-8");
+	include_once("../common/mysql.php");
+	
+	$dataid = $_POST["dataid"];
+	
+	$getInfo = <<<getinfo
+	select * from data where id = "{$dataid}";
+getinfo;
+	$res = mysqli_query($link, $getInfo);
+	$info = mysqli_fetch_assoc($res);
+	
+	$dataDetail = ["info"=>$info];
+	$json = json_encode($dataDetail);
+	
+	echo $json;
+	mysqli_close($link);
